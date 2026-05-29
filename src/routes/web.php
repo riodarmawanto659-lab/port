@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Skill;
+use App\Models\Profile;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use App\Http\Controllers\ContactController;
@@ -13,7 +16,18 @@ Livewire::setScriptRoute(function ($handle) {
 });
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $profile = Profile::first();
+
+    $projects = Project::latest()->get();
+
+    $skills = Skill::latest()->get();
+
+    return view('welcome', compact(
+        'profile',
+        'projects',
+        'skills',
+    ));
 });
 
 Route::post('/contact', [ContactController::class, 'store'])

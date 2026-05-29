@@ -10,14 +10,21 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'subject' => 'required',
-            'message' => 'required',
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'subject' => ['required'],
+            'message' => ['required'],
         ]);
 
-        Contact::create($validated);
+        Contact::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'subject' => $validated['subject'],
+            'message' => $validated['message'],
+            'is_read' => false,
+        ]);
 
-        return back()->with('success', 'Message sent');
+        return redirect('/')
+            ->with('success', 'Message sent successfully');
     }
 }

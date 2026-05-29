@@ -11,10 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project_skill', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('project_id');
-            $table->foreignId('skill_id');
+
+            $table->string('name');
+
+            $table->string('email');
+
+            $table->string('subject')->nullable();
+
+            $table->longText('message');
+
+            $table->boolean('is_read')->default(false);
+
             $table->timestamps();
         });
     }
@@ -24,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project_skill');
+        Schema::dropIfExists('contacts');
     }
 };

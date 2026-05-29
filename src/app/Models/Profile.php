@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     protected $fillable = [
+        'name',
         'photo',
-        'fullname',
-        'title',
         'bio',
         'email',
         'phone',
+        'address',
         'github',
         'linkedin',
-        'website',
+        'cv_file',
     ];
 }

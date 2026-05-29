@@ -13,17 +13,15 @@ class ContactSeeder extends Seeder
     public function run(): void
     {
         Contact::create([
-            'name' => 'Rio Darmawanto',
-            'email' => 'idoyrio37@gmail.com',
-            'subject' => 'Kerjasama Project',
-            'message' => 'Halo, saya tertarik bekerja sama.',
-        ]);
+            'name' => 'John Doe',
 
-        Contact::create([
-            'name' => 'rio',
-            'email' => 'idoyrio37@gmail.com',
-            'subject' => '089602683294',
-            'message' => 'tugas uts',
+            'email' => 'john@example.com',
+
+            'subject' => 'Collaboration',
+
+            'message' => 'Hello, I want to collaborate with you.',
+
+            'is_read' => false,
         ]);
     }
 }
