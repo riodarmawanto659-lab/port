@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     protected $fillable = [
+        'photo',
         'fullname',
         'title',
         'bio',
@@ -15,6 +16,5 @@ class Profile extends Model
         'github',
         'linkedin',
         'website',
-        'photo',
     ];
 }

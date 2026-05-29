@@ -552,7 +552,9 @@
 
         </div>
 
-        <form class="contact-form">
+        <form action="{{ route('contact.store') }}" method="POST" class="contact-form">
+
+            @csrf
 
             <div class="form-group">
                 <label for="name">Name</label>
